@@ -4,6 +4,10 @@ Guia comparativo de modelos de inteligência artificial voltados para **revisão
 
 O objetivo é ajudar desenvolvedores a escolher o modelo mais adequado para cada tarefa, comparando os custos de contratação direta por API com os valores de referência do GitHub Copilot.
 
+<p align="center">
+	<img src="assets/og-guia.png" alt="Capa do guia de custos de modelos de IA">
+</p>
+
 ## 🛠️ Gerando o guia
 
 É necessário ter o Python instalado. No terminal, na pasta do projeto, crie e ative um ambiente virtual:
