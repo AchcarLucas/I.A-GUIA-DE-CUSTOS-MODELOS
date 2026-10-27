@@ -26,15 +26,12 @@ Com o ambiente virtual ativado, instale as dependências e execute o script:
 
 ```bash
 python -m pip install -r requirements.txt
-python gerar_guia.py
+python gerar_guia_copilot.py
 ```
-
-O PDF gerado, `guia_copilot_modelos_custos-detalhado-v2.1.pdf`, será salvo na pasta do projeto. Para sair do ambiente virtual, execute `deactivate`.
-
 
 ## 📄 Documento
 
-[**Baixar ou visualizar o guia em PDF**](guia_copilot_modelos_custos-detalhado-v2.1.pdf)
+[**Baixar ou visualizar a última versão do guia em PDF**](guia_copilot_modelos_custos-detalhado-latest.pdf)
 
 ## 📊 O que você encontrará
 

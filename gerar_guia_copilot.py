@@ -23,9 +23,13 @@ from reportlab.platypus import (
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
 import os
+import shutil
 from pathlib import Path
 
-OUT = str(Path(__file__).resolve().parent / "guia_copilot_modelos_custos-detalhado-v2.1.pdf")
+VERSION = "2.1"
+OUTPUT_DIR = Path(__file__).resolve().parent
+OUT = str(OUTPUT_DIR / f"guia_copilot_modelos_custos-detalhado-v{VERSION}.pdf")
+LATEST_OUT = str(OUTPUT_DIR / "guia_copilot_modelos_custos-detalhado-latest.pdf")
 
 # Typography
 regular = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
@@ -125,7 +129,7 @@ doc = SimpleDocTemplate(
     OUT, pagesize=landscape(A4),
     rightMargin=13*mm, leftMargin=13*mm,
     topMargin=14*mm, bottomMargin=15*mm,
-    title="Guia de modelos do GitHub Copilot e custos por token v2.1",
+    title=f"Guia de modelos do GitHub Copilot e custos por token v{VERSION}",
     author="OpenAI"
 )
 story=[]
@@ -134,7 +138,7 @@ story=[]
 banner = Table([
     [P("GUIA DE MODELOS E CUSTOS", "CoverTitleX")],
     [P("GitHub Copilot vs. APIs oficiais • Revisão manual de código", "CoverSubX")],
-    [P("Versão 2.1 | Lista de modelos consultada em 26 de outubro de 2026", "CoverSubX")]
+    [P(f"Versão {VERSION} | Lista de modelos consultada em 26 de outubro de 2026", "CoverSubX")]
 ], colWidths=[landscape(A4)[0]-26*mm])
 banner.setStyle(TableStyle([
     ("BACKGROUND",(0,0),(-1,-1),navy),
@@ -336,7 +340,9 @@ story.append(Spacer(1,2*mm))
 story.append(P("Conclusão: escolha o modelo pelo tipo de revisão e não só pelo preço por token. Uma análise curta com modelo potente pode sair mais barata que uma sequência longa de tentativas com um modelo inadequado; compare o custo por tarefa com evidências e resultados reais.", "CalloutX"))
 
 doc.build(story,onFirstPage=page_decor,onLaterPages=page_decor)
+shutil.copyfile(OUT, LATEST_OUT)
 
 print(f"PDF atualizado: {OUT}")
+print(f"Alias da última versão: {LATEST_OUT}")
 print(f"Tamanho: {os.path.getsize(OUT):,} bytes")
 print(f"Modelos incluídos: {len(models)}")

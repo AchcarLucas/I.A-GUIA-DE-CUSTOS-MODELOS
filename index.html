@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c3a">
+  <title>Guia de Modelos de IA e Custos | Última versão</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #192d2b;
+      --muted: #64716e;
+      --paper: #f1f3ee;
+      --surface: #fffefa;
+      --line: #d7ded7;
+      --accent: #b94b32;
+      --deep: #183c3a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px clamp(18px, 4vw, 56px);
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .identity { min-width: 0; }
+
+    .eyebrow {
+      margin: 0 0 5px;
+      color: var(--accent);
+      font: 700 11px/1.2 Arial, sans-serif;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(18px, 2vw, 25px);
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    .actions {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 10px;
+      font-family: Arial, sans-serif;
+    }
+
+    .actions a {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      color: var(--deep);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 140ms ease, border-color 140ms ease;
+    }
+
+    .actions a:hover { background: #e8eee8; border-color: #b5c5b8; }
+    .actions a.primary { border-color: var(--deep); background: var(--deep); color: white; }
+    .actions a.primary:hover { background: #24524d; }
+    .actions svg { width: 16px; height: 16px; }
+
+    main {
+      min-height: 0;
+      padding: 18px clamp(12px, 2.2vw, 30px) 24px;
+    }
+
+    .reader {
+      width: 100%;
+      height: calc(100vh - 102px);
+      min-height: 420px;
+      overflow: hidden;
+      border: 1px solid #cbd3cc;
+      background: #dce1dc;
+      box-shadow: 0 8px 28px rgb(25 45 43 / 9%);
+    }
+
+    .reader iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: white;
+    }
+
+    .fallback {
+      padding: 24px;
+      color: var(--ink);
+      font: 15px/1.5 Arial, sans-serif;
+    }
+
+    .fallback a { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .masthead { align-items: flex-start; flex-direction: column; gap: 14px; }
+      .actions { width: 100%; }
+      .actions a { flex: 1; }
+      main { padding: 10px; }
+      .reader { height: calc(100vh - 142px); min-height: 360px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <div class="identity">
+        <p class="eyebrow">Guia comparativo · última versão</p>
+        <h1>Modelos de IA e custos</h1>
+      </div>
+      <nav class="actions" aria-label="Ações do documento">
+        <a href="guia_copilot_modelos_custos-detalhado-latest.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/></svg>
+          Abrir PDF
+        </a>
+        <a class="primary" href="guia_copilot_modelos_custos-detalhado-latest.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 17v3h16v-3"/></svg>
+          Baixar
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section class="reader" aria-label="Leitor do guia em PDF">
+        <iframe
+          src="guia_copilot_modelos_custos-detalhado-latest.pdf#view=FitH"
+          title="Guia de Modelos de IA e Custos, última versão"
+        >
+          <div class="fallback">
+            Seu navegador não conseguiu exibir o PDF aqui.
+            <a href="guia_copilot_modelos_custos-detalhado-latest.pdf">Abra o documento diretamente</a>.
+          </div>
+        </iframe>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
