@@ -29,12 +29,12 @@ python -m pip install -r requirements.txt
 python gerar_guia.py
 ```
 
-O PDF gerado, `guia_copilot_modelos_custos_revisado_v2.pdf`, será salvo na pasta do projeto. Para sair do ambiente virtual, execute `deactivate`.
+O PDF gerado, `guia_copilot_modelos_custos-detalhado-v2.1.pdf`, será salvo na pasta do projeto. Para sair do ambiente virtual, execute `deactivate`.
 
 
 ## 📄 Documento
 
-[**Baixar ou visualizar o guia em PDF**](guia_copilot_modelos_custos-detalhado-v2.pdf)
+[**Baixar ou visualizar o guia em PDF**](guia_copilot_modelos_custos-detalhado-v2.1.pdf)
 
 ## 📊 O que você encontrará
 

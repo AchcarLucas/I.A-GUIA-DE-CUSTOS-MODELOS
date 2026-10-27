@@ -25,7 +25,7 @@ from reportlab.pdfbase import pdfmetrics
 import os
 from pathlib import Path
 
-OUT = str(Path(__file__).resolve().parent / "guia_copilot_modelos_custos-detalhado-v2.pdf")
+OUT = str(Path(__file__).resolve().parent / "guia_copilot_modelos_custos-detalhado-v2.1.pdf")
 
 # Typography
 regular = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
@@ -125,7 +125,7 @@ doc = SimpleDocTemplate(
     OUT, pagesize=landscape(A4),
     rightMargin=13*mm, leftMargin=13*mm,
     topMargin=14*mm, bottomMargin=15*mm,
-    title="Guia de modelos do GitHub Copilot e custos por token",
+    title="Guia de modelos do GitHub Copilot e custos por token v2.1",
     author="OpenAI"
 )
 story=[]
@@ -134,7 +134,7 @@ story=[]
 banner = Table([
     [P("GUIA DE MODELOS E CUSTOS", "CoverTitleX")],
     [P("GitHub Copilot vs. APIs oficiais • Revisão manual de código", "CoverSubX")],
-    [P("Lista de modelos consultada em 26 de outubro de 2026", "CoverSubX")]
+    [P("Versão 2.1 | Lista de modelos consultada em 26 de outubro de 2026", "CoverSubX")]
 ], colWidths=[landscape(A4)[0]-26*mm])
 banner.setStyle(TableStyle([
     ("BACKGROUND",(0,0),(-1,-1),navy),
@@ -270,10 +270,10 @@ story.append(P("<b>Nota para revisão de código:</b> a função “Copilot code
 
 story.append(P("4. Recomendações para code review", "H1X"))
 workflow=[
-    [P("1. Triagem econômica", "CellBoldX"), P("Use um modelo leve para enumerar riscos, funções suspeitas, casos extremos e testes ausentes. Limite o contexto aos arquivos relevantes.", "CellX")],
-    [P("2. Investigação complexa", "CellBoldX"), P("Use um modelo versátil ou potente para revisar fluxos entre arquivos, concorrência, autenticação, estado compartilhado e regressões. Forneça o diff e o comportamento esperado.", "CellX")],
-    [P("3. Verificação", "CellBoldX"), P("Solicite referências a arquivo/linha, hipótese reproduzível e teste que falharia antes da correção. Valide as recomendações executando testes e conferindo o código.", "CellX")],
-    [P("4. Controle de contexto e custo", "CellBoldX"), P("Evite enviar o repositório inteiro se apenas alguns arquivos forem relevantes. Ao mudar de modelo, não presuma que todo cache sempre será invalidado: isso depende do produto e da implementação.", "CellX")],
+    [P("1. Triagem econômica", "CellBoldX"), P("Use um modelo leve para enumerar riscos, funções suspeitas, casos extremos e testes ausentes. Limite o contexto aos arquivos relevantes. <b>Modelos sugeridos:</b> GPT-6 Luna ou Claude Haiku 5.5, opções de menor custo na tabela.", "CellX")],
+    [P("2. Investigação complexa", "CellBoldX"), P("Use um modelo versátil ou potente para revisar fluxos entre arquivos, concorrência, autenticação, estado compartilhado e regressões. Forneça o diff e o comportamento esperado. <b>Modelos sugeridos:</b> Claude Opus 5.5 ou GPT-6 Astra para análise profunda; GPT-6 Sol como alternativa de menor custo.", "CellX")],
+    [P("3. Verificação", "CellBoldX"), P("Solicite referências a arquivo/linha, hipótese reproduzível e teste que falharia antes da correção. Valide as recomendações executando testes e conferindo o código. <b>Modelos sugeridos:</b> Claude Sonnet 5.5 ou GPT-6 Sol para uma segunda análise equilibrada; execute os testes independentemente do modelo.", "CellX")],
+    [P("4. Controle de contexto e custo", "CellBoldX"), P("Evite enviar o repositório inteiro se apenas alguns arquivos forem relevantes. Ao mudar de modelo, não presuma que todo cache sempre será invalidado: isso depende do produto e da implementação. <b>Modelos sugeridos:</b> GPT-6 Luna para contextos menores e GPT-6.1 Terra quando uma análise realmente exigir mais contexto; confira os tiers e custos de cache na tabela.", "CellX")],
 ]
 wt=Table(workflow,colWidths=[42*mm,landscape(A4)[0]-26*mm-42*mm])
 wt.setStyle(TableStyle([
