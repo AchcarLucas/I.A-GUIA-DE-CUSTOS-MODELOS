@@ -6,8 +6,7 @@ O objetivo é ajudar desenvolvedores a escolher o modelo mais adequado para cada
 
 ## 📄 Documento
 
-[**Baixar ou visualizar o guia em PDF**](guia_copilot_modelos_custos_revisado.pdf)
-
+[**Baixar ou visualizar o guia em PDF**](guia_copilot_modelos_custos-detalhado.pdf)
 ## 📊 O que você encontrará
 
 - **Comparativo de modelos:** modelos da OpenAI, Anthropic e Google.
