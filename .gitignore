@@ -11,6 +11,3 @@ __pycache__/
 .env
 .env.*
 !.env.example
-
-# Generated PDF
-guia_copilot_modelos_custos-detalhado-v2.1.pdf
