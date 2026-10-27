@@ -30,7 +30,7 @@ python gerar_guia_copilot.py
 python gerar_og_guia.py
 ```
 
-`gerar_og_guia.py` recria a imagem de compartilhamento (`og-guia.svg` e `og-guia.png`). Além do pacote Python, ele precisa da biblioteca de sistema libcairo (no Ubuntu/Debian: `libcairo2`).
+`gerar_og_guia.py` recria a imagem de compartilhamento em `assets/og-guia.svg` e `assets/og-guia.png`. Além do pacote Python, ele precisa da biblioteca de sistema libcairo (no Ubuntu/Debian: `libcairo2`).
 
 ## 📄 Documento
 

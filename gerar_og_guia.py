@@ -10,7 +10,7 @@ No Ubuntu/Debian: sudo apt install libcairo2
 Execução:
     python gerar_og_guia.py
 
-Grava og-guia.svg e og-guia.png na mesma pasta deste script.
+Grava assets/og-guia.svg e assets/og-guia.png.
 """
 
 from pathlib import Path
@@ -18,8 +18,9 @@ import struct
 import sys
 
 ROOT = Path(__file__).resolve().parent
-SVG_PATH = ROOT / "og-guia.svg"
-PNG_PATH = ROOT / "og-guia.png"
+ASSETS_DIR = ROOT / "assets"
+SVG_PATH = ASSETS_DIR / "og-guia.svg"
+PNG_PATH = ASSETS_DIR / "og-guia.png"
 WIDTH = 1200
 HEIGHT = 630
 
@@ -141,6 +142,7 @@ def main() -> None:
         )
         raise SystemExit(1) from None
 
+    ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     SVG_PATH.write_text(SVG, encoding="utf-8")
     cairosvg.svg2png(
         bytestring=SVG.encode("utf-8"),
