@@ -75,17 +75,21 @@ Os preços são apresentados em dólares americanos (USD), considerando:
 
 ## 🔗 Fontes oficiais
 
-- [GitHub Copilot — Modelos e preços](https://docs.github.com/pt/copilot/reference/copilot-billing/models-and-pricing)
-- [GitHub Copilot — Cobrança e utilização](https://docs.github.com/en/copilot/concepts/billing-and-usage/individuals/billing)
-- [OpenAI API — Preços](https://developers.openai.com/api/docs/pricing)
-- [Anthropic — Preços da API Claude](https://docs.anthropic.com/en/docs/about-claude/pricing)
-- [Google Gemini API — Preços](https://ai.google.dev/gemini-api/docs/pricing)
+- [GitHub Copilot — preços por modelo](https://docs.github.com/pt/copilot/reference/copilot-billing/models-and-pricing): tarifas por tokens e multiplicadores de uso.
+- [GitHub Copilot — modelos compatíveis](https://docs.github.com/en/copilot/reference/ai-models/supported-models): disponibilidade e provedores dos modelos.
+- [GitHub Copilot — cobrança e utilização](https://docs.github.com/en/copilot/concepts/billing-and-usage/individuals/billing): regras de cobrança e créditos do plano.
+- [OpenAI API — preços](https://developers.openai.com/api/docs/pricing): tarifas de entrada, saída e cache.
+- [Anthropic — Claude Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5), [Sonnet 5.5](https://www.anthropic.com/claude-sonnet-5-5) e [Opus 5.5](https://www.anthropic.com/claude-opus-5-5): preços dos modelos Claude e cache.
+- [Google — preços da Gemini API](https://ai.google.dev/gemini-api/docs/pricing): tarifas dos modelos Gemini.
+- [Microsoft Foundry — catálogo MAI-Code-1.1-Flash](https://ai.azure.com/catalog/models/mai-code-1.1-flash): detalhes do modelo; o custo de implantação deve ser conferido no Azure.
+- [xAI — preços da API](https://docs.x.ai/developers/pricing): tarifas de modelos Grok.
+- [Moonshot AI — anúncio do Kimi K3](https://forum.moonshot.ai/t/kimi-k3-is-here-our-most-capable-model/480): referência publicada para o modelo Kimi.
 
 ## 📅 Atualização
 
 Versão do guia: **26 de outubro de 2026**.
 
-Como os fornecedores atualizam modelos, tarifas e condições de acesso, recomenda-se verificar as fontes oficiais antes de utilizar os valores em estimativas de orçamento.
+Modelos, tarifas e condições de acesso podem mudar. Consulte as fontes oficiais antes de estimar custos; a inclusão de um modelo em um catálogo não significa que exista uma tarifa pública direta para ele.
 
 ## 📜 Licença
 
