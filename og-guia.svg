@@ -45,22 +45,22 @@
     <circle cx="214" cy="552" r="1.4" opacity="0.18"/>
   </g>
 
-  <text x="64" y="108" fill="#e2b56a" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" letter-spacing="2.4">GUIA DE CUSTOS  ·  ÚLTIMA VERSÃO</text>
+  <text x="64" y="92" fill="#e2b56a" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" letter-spacing="2.4">GUIA DE CUSTOS</text>
 
-  <text x="60" y="208" fill="#f7f1e7" font-family="Gentium Plus, DejaVu Serif, Georgia, serif" font-size="76" font-weight="700">Custos dos</text>
-  <text x="60" y="294" fill="#f7f1e7" font-family="Gentium Plus, DejaVu Serif, Georgia, serif" font-size="76" font-weight="700">modelos de <tspan fill="#e2b56a">IA</tspan></text>
+  <text x="60" y="172" fill="#f7f1e7" font-family="Gentium Plus, DejaVu Serif, Georgia, serif" font-size="68" font-weight="700">Custos dos</text>
+  <text x="60" y="248" fill="#f7f1e7" font-family="Gentium Plus, DejaVu Serif, Georgia, serif" font-size="68" font-weight="700">modelos de <tspan fill="#e2b56a">IA</tspan></text>
 
-  <rect x="64" y="326" width="84" height="4" rx="2" fill="url(#gold)"/>
-  <text x="64" y="378" fill="#d9cbb8" font-family="DejaVu Sans, sans-serif" font-size="23">Preço por token, créditos do Copilot</text>
-  <text x="64" y="412" fill="#d9cbb8" font-family="DejaVu Sans, sans-serif" font-size="23">e quando cada modelo vale a pena.</text>
+  <rect x="64" y="272" width="84" height="4" rx="2" fill="url(#gold)"/>
+  <text x="64" y="316" fill="#d9cbb8" font-family="DejaVu Sans, sans-serif" font-size="21">Comparativo para revisão de código.</text>
+  <text x="64" y="346" fill="#d9cbb8" font-family="DejaVu Sans, sans-serif" font-size="21">Escolha o modelo pelo preço e pela tarefa.</text>
 
-  <g font-family="DejaVu Sans, sans-serif" font-size="14" font-weight="700" fill="#f7f1e7">
-    <rect x="64" y="448" width="138" height="38" rx="19" fill="#2a241c" stroke="#6a5438"/>
-    <text x="88" y="472">por token</text>
-    <rect x="214" y="448" width="116" height="38" rx="19" fill="#2a241c" stroke="#6a5438"/>
-    <text x="238" y="472">Copilot</text>
-    <rect x="342" y="448" width="84" height="38" rx="19" fill="#2a241c" stroke="#6a5438"/>
-    <text x="366" y="472">APIs</text>
+  <g font-family="DejaVu Sans, sans-serif" font-size="18" fill="#f7f1e7">
+    <circle cx="74" cy="392" r="4" fill="#e2b56a"/>
+    <text x="92" y="398">OpenAI, Anthropic e Google</text>
+    <circle cx="74" cy="432" r="4" fill="#e2b56a"/>
+    <text x="92" y="438">USD por milhão de tokens, entrada e saída</text>
+    <circle cx="74" cy="472" r="4" fill="#e2b56a"/>
+    <text x="92" y="478">API direta versus créditos do Copilot</text>
   </g>
 
   <text x="64" y="568" fill="#b7a894" font-family="DejaVu Sans, sans-serif" font-size="17">ia.guia.lcadev.com.br</text>
@@ -69,27 +69,26 @@
   <rect x="740" y="54" width="396" height="506" rx="28" fill="url(#panel)" stroke="#6d5a40" stroke-width="1.4"/>
   <path d="M768 54h92v3H768z" fill="url(#gold)"/>
 
-  <text x="772" y="108" fill="#e2b56a" font-family="DejaVu Sans, sans-serif" font-size="12" font-weight="700" letter-spacing="1.7">COMO LER O PREÇO</text>
-  <text x="770" y="154" fill="#f7f1e7" font-family="Gentium Plus, DejaVu Serif, Georgia, serif" font-size="32" font-weight="700">A saída pesa mais</text>
-  <text x="772" y="184" fill="#cbbba6" font-family="DejaVu Sans, sans-serif" font-size="15">no custo por token gerado</text>
-  <line x1="772" y1="208" x2="1104" y2="208" stroke="#3f342b"/>
+  <text x="772" y="104" fill="#e2b56a" font-family="DejaVu Sans, sans-serif" font-size="12" font-weight="700" letter-spacing="1.7">O QUE O GUIA COMPARA</text>
+  <text x="770" y="146" fill="#f7f1e7" font-family="Gentium Plus, DejaVu Serif, Georgia, serif" font-size="30" font-weight="700">Quatro decisões</text>
+  <line x1="772" y1="170" x2="1104" y2="170" stroke="#3f342b"/>
 
-  <rect x="816" y="286" width="58" height="168" rx="29" fill="url(#sage)"/>
-  <rect x="824" y="294" width="10" height="140" rx="5" fill="#fff" opacity="0.16"/>
-  <rect x="906" y="230" width="70" height="224" rx="35" fill="url(#gold)"/>
-  <rect x="916" y="240" width="12" height="188" rx="6" fill="#fff" opacity="0.22"/>
-  <circle cx="941" cy="222" r="7" fill="#f8e7c4"/>
-  <rect x="1010" y="322" width="54" height="132" rx="27" fill="url(#clay)"/>
-  <rect x="1018" y="330" width="9" height="104" rx="4.5" fill="#fff" opacity="0.16"/>
-  <line x1="788" y1="454" x2="1092" y2="454" stroke="#4a3d30" stroke-width="1.2"/>
+  <g font-family="DejaVu Sans, sans-serif">
+    <circle cx="786" cy="206" r="5" fill="#e2b56a"/>
+    <text x="806" y="212" fill="#f7f1e7" font-size="16" font-weight="700">Preço por modelo</text>
+    <text x="806" y="234" fill="#cbbba6" font-size="14">entrada e saída, em dólares</text>
 
-  <g font-family="DejaVu Sans, sans-serif" text-anchor="middle">
-    <text x="845" y="480" fill="#f7f1e7" font-size="13" font-weight="700">entrada</text>
-    <text x="845" y="498" fill="#b7a894" font-size="11">contexto</text>
-    <text x="941" y="480" fill="#f8e7c4" font-size="13" font-weight="700">saída</text>
-    <text x="941" y="498" fill="#b7a894" font-size="11">resposta</text>
-    <text x="1037" y="480" fill="#f7f1e7" font-size="13" font-weight="700">plano</text>
-    <text x="1037" y="498" fill="#b7a894" font-size="11">créditos</text>
+    <circle cx="786" cy="278" r="5" fill="#8faf9c"/>
+    <text x="806" y="284" fill="#f7f1e7" font-size="16" font-weight="700">Copilot e API</text>
+    <text x="806" y="306" fill="#cbbba6" font-size="14">créditos do plano ou tarifa direta</text>
+
+    <circle cx="786" cy="350" r="5" fill="#d7a08e"/>
+    <text x="806" y="356" fill="#f7f1e7" font-size="16" font-weight="700">Tipo de revisão</text>
+    <text x="806" y="378" fill="#cbbba6" font-size="14">triagem, bug difícil, muito contexto</text>
+
+    <circle cx="786" cy="422" r="5" fill="#e2b56a"/>
+    <text x="806" y="428" fill="#f7f1e7" font-size="16" font-weight="700">Como economizar</text>
+    <text x="806" y="450" fill="#cbbba6" font-size="14">menos tokens, sem perder a análise</text>
   </g>
-  <text x="772" y="532" fill="#8f8274" font-family="DejaVu Sans, sans-serif" font-size="12" letter-spacing="1.2">OPENAI   ·   ANTHROPIC   ·   GOOGLE</text>
+  <text x="772" y="520" fill="#8f8274" font-family="DejaVu Sans, sans-serif" font-size="13">Estimativas de referência, não cotação.</text>
 </svg>
