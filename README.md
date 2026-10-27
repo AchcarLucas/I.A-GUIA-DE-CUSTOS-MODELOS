@@ -1,4 +1,4 @@
-# Guia de Modelos de IA e Custos — GitHub Copilot
+# Guia de custos de modelos de IA — GitHub Copilot
 
 Guia comparativo de modelos de inteligência artificial voltados para **revisão manual de código (Code Review)**, com foco em custo-benefício, qualidade de análise e eficiência no desenvolvimento de software.
 
@@ -27,7 +27,10 @@ Com o ambiente virtual ativado, instale as dependências e execute o script:
 ```bash
 python -m pip install -r requirements.txt
 python gerar_guia_copilot.py
+python gerar_og_guia.py
 ```
+
+`gerar_og_guia.py` recria a imagem de compartilhamento (`og-guia.svg` e `og-guia.png`). Além do pacote Python, ele precisa da biblioteca de sistema libcairo (no Ubuntu/Debian: `libcairo2`).
 
 ## 📄 Documento
 

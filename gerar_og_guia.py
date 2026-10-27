@@ -1,0 +1,160 @@
+"""
+Gera a imagem de compartilhamento do guia (Open Graph, 1200×630).
+
+Requisitos:
+    python -m pip install -r requirements.txt
+
+O pacote cairosvg também precisa da biblioteca de sistema libcairo.
+No Ubuntu/Debian: sudo apt install libcairo2
+
+Execução:
+    python gerar_og_guia.py
+
+Grava og-guia.svg e og-guia.png na mesma pasta deste script.
+"""
+
+from pathlib import Path
+import struct
+import sys
+
+ROOT = Path(__file__).resolve().parent
+SVG_PATH = ROOT / "og-guia.svg"
+PNG_PATH = ROOT / "og-guia.png"
+WIDTH = 1200
+HEIGHT = 630
+
+SVG = """\
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a211a"/>
+      <stop offset="46%" stop-color="#14110e"/>
+      <stop offset="100%" stop-color="#0c0a09"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="78%" cy="44%" r="48%">
+      <stop offset="0%" stop-color="#e2b56a" stop-opacity="0.34"/>
+      <stop offset="38%" stop-color="#8a5a22" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#8a5a22" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="1" x2="0.15" y2="0">
+      <stop offset="0%" stop-color="#8d5e28"/>
+      <stop offset="46%" stop-color="#e2b56a"/>
+      <stop offset="100%" stop-color="#f8e7c4"/>
+    </linearGradient>
+    <linearGradient id="sage" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#3d5c48"/>
+      <stop offset="100%" stop-color="#c5ddd0"/>
+    </linearGradient>
+    <linearGradient id="clay" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#7a4634"/>
+      <stop offset="100%" stop-color="#f0c8b8"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#322b23"/>
+      <stop offset="100%" stop-color="#191511"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <circle cx="1048" cy="78" r="150" fill="none" stroke="#e2b56a" stroke-width="1.25" opacity="0.28"/>
+  <circle cx="1048" cy="78" r="98" fill="#e2b56a" opacity="0.05"/>
+  <circle cx="150" cy="548" r="72" fill="#e2b56a" opacity="0.045"/>
+  <rect width="8" height="630" fill="url(#gold)"/>
+
+  <g fill="#e2b56a">
+    <circle cx="78" cy="548" r="1.4" opacity="0.45"/>
+    <circle cx="108" cy="568" r="1.4" opacity="0.3"/>
+    <circle cx="142" cy="540" r="1.4" opacity="0.22"/>
+    <circle cx="176" cy="574" r="1.4" opacity="0.34"/>
+    <circle cx="214" cy="552" r="1.4" opacity="0.18"/>
+  </g>
+
+  <text x="64" y="108" fill="#e2b56a" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" letter-spacing="2.4">GUIA DE CUSTOS  ·  ÚLTIMA VERSÃO</text>
+
+  <text x="60" y="208" fill="#f7f1e7" font-family="Gentium Plus, DejaVu Serif, Georgia, serif" font-size="76" font-weight="700">Custos dos</text>
+  <text x="60" y="294" fill="#f7f1e7" font-family="Gentium Plus, DejaVu Serif, Georgia, serif" font-size="76" font-weight="700">modelos de <tspan fill="#e2b56a">IA</tspan></text>
+
+  <rect x="64" y="326" width="84" height="4" rx="2" fill="url(#gold)"/>
+  <text x="64" y="378" fill="#d9cbb8" font-family="DejaVu Sans, sans-serif" font-size="23">Preço por token, créditos do Copilot</text>
+  <text x="64" y="412" fill="#d9cbb8" font-family="DejaVu Sans, sans-serif" font-size="23">e quando cada modelo vale a pena.</text>
+
+  <g font-family="DejaVu Sans, sans-serif" font-size="14" font-weight="700" fill="#f7f1e7">
+    <rect x="64" y="448" width="138" height="38" rx="19" fill="#2a241c" stroke="#6a5438"/>
+    <text x="88" y="472">por token</text>
+    <rect x="214" y="448" width="116" height="38" rx="19" fill="#2a241c" stroke="#6a5438"/>
+    <text x="238" y="472">Copilot</text>
+    <rect x="342" y="448" width="84" height="38" rx="19" fill="#2a241c" stroke="#6a5438"/>
+    <text x="366" y="472">APIs</text>
+  </g>
+
+  <text x="64" y="568" fill="#b7a894" font-family="DejaVu Sans, sans-serif" font-size="17">ia.guia.lcadev.com.br</text>
+
+  <rect x="756" y="74" width="384" height="492" rx="28" fill="#000" opacity="0.28"/>
+  <rect x="740" y="54" width="396" height="506" rx="28" fill="url(#panel)" stroke="#6d5a40" stroke-width="1.4"/>
+  <path d="M768 54h92v3H768z" fill="url(#gold)"/>
+
+  <text x="772" y="108" fill="#e2b56a" font-family="DejaVu Sans, sans-serif" font-size="12" font-weight="700" letter-spacing="1.7">COMO LER O PREÇO</text>
+  <text x="770" y="154" fill="#f7f1e7" font-family="Gentium Plus, DejaVu Serif, Georgia, serif" font-size="32" font-weight="700">A saída pesa mais</text>
+  <text x="772" y="184" fill="#cbbba6" font-family="DejaVu Sans, sans-serif" font-size="15">no custo por token gerado</text>
+  <line x1="772" y1="208" x2="1104" y2="208" stroke="#3f342b"/>
+
+  <rect x="816" y="286" width="58" height="168" rx="29" fill="url(#sage)"/>
+  <rect x="824" y="294" width="10" height="140" rx="5" fill="#fff" opacity="0.16"/>
+  <rect x="906" y="230" width="70" height="224" rx="35" fill="url(#gold)"/>
+  <rect x="916" y="240" width="12" height="188" rx="6" fill="#fff" opacity="0.22"/>
+  <circle cx="941" cy="222" r="7" fill="#f8e7c4"/>
+  <rect x="1010" y="322" width="54" height="132" rx="27" fill="url(#clay)"/>
+  <rect x="1018" y="330" width="9" height="104" rx="4.5" fill="#fff" opacity="0.16"/>
+  <line x1="788" y1="454" x2="1092" y2="454" stroke="#4a3d30" stroke-width="1.2"/>
+
+  <g font-family="DejaVu Sans, sans-serif" text-anchor="middle">
+    <text x="845" y="480" fill="#f7f1e7" font-size="13" font-weight="700">entrada</text>
+    <text x="845" y="498" fill="#b7a894" font-size="11">contexto</text>
+    <text x="941" y="480" fill="#f8e7c4" font-size="13" font-weight="700">saída</text>
+    <text x="941" y="498" fill="#b7a894" font-size="11">resposta</text>
+    <text x="1037" y="480" fill="#f7f1e7" font-size="13" font-weight="700">plano</text>
+    <text x="1037" y="498" fill="#b7a894" font-size="11">créditos</text>
+  </g>
+  <text x="772" y="532" fill="#8f8274" font-family="DejaVu Sans, sans-serif" font-size="12" letter-spacing="1.2">OPENAI   ·   ANTHROPIC   ·   GOOGLE</text>
+</svg>
+"""
+
+
+def png_size(path: Path) -> tuple[int, int]:
+    data = path.read_bytes()
+    if data[:8] != b"\x89PNG\r\n\x1a\n":
+        raise SystemExit(f"{path.name} não é um PNG válido.")
+    width, height = struct.unpack(">II", data[16:24])
+    return width, height
+
+
+def main() -> None:
+    try:
+        import cairosvg
+    except ImportError:
+        print(
+            "Dependência ausente: cairosvg.\n"
+            "Instale com: python -m pip install -r requirements.txt\n"
+            "No Ubuntu/Debian, a biblioteca de sistema libcairo2 também é necessária.",
+            file=sys.stderr,
+        )
+        raise SystemExit(1) from None
+
+    SVG_PATH.write_text(SVG, encoding="utf-8")
+    cairosvg.svg2png(
+        bytestring=SVG.encode("utf-8"),
+        write_to=str(PNG_PATH),
+        output_width=WIDTH,
+        output_height=HEIGHT,
+    )
+    width, height = png_size(PNG_PATH)
+    if (width, height) != (WIDTH, HEIGHT):
+        raise SystemExit(f"PNG inesperado: {width}x{height}")
+    print(f"SVG: {SVG_PATH.name}")
+    print(f"PNG: {PNG_PATH.name} ({width}x{height})")
+
+
+if __name__ == "__main__":
+    main()
