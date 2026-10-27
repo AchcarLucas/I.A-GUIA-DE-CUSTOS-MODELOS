@@ -38,7 +38,8 @@ python gerar_og_guia.py
 
 ## 📄 Documento
 
-[**Baixar ou visualizar a última versão do guia em PDF**](guia_copilot_modelos_custos-detalhado-latest.pdf)
+- [**Acessar o guia online**](https://ia.guia.lcadev.com.br)
+- [**Baixar ou visualizar a última versão em PDF**](guia_copilot_modelos_custos-detalhado-latest.pdf)
 
 ## 📊 O que você encontrará
 
