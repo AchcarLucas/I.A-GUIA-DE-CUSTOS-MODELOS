@@ -1,4 +1,4 @@
-# Guia de custos de modelos de IA — GitHub Copilot versus APIs oficiais
+# Guia de custos de modelos de IA — GitHub Copilot e das APIs oficiais
 
 Guia comparativo de modelos de inteligência artificial voltados para **revisão manual de código (Code Review)**, com foco em custo-benefício, qualidade de análise e eficiência no desenvolvimento de software.
 
