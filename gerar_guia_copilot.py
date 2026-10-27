@@ -30,7 +30,7 @@ import shutil
 from pathlib import Path
 import cairosvg
 
-VERSION = "2.2"
+VERSION = "2.3"
 GENERATED_AT = datetime.now().astimezone()
 OUTPUT_DIR = Path(__file__).resolve().parent
 LINK_ICON = ImageReader(BytesIO(cairosvg.svg2png(
@@ -118,7 +118,7 @@ def page_decor(canvas, doc):
         canvas.setFillColor(gray)
         canvas.drawString(
             13*mm, 7.5*mm,
-            f"Guia de modelos e custos | Atualizado em {GENERATED_AT:%d/%m/%Y às %H:%M}"
+            f"Guia de custos de modelos de IA | Atualizado em {GENERATED_AT:%d/%m/%Y às %H:%M}"
         )
         canvas.drawRightString(w - 13*mm, 7.5*mm, f"Página {doc.page}")
     site_url = "https://ia.guia.lcadev.com.br"
@@ -180,15 +180,15 @@ doc = SimpleDocTemplate(
     OUT, pagesize=landscape(A4),
     rightMargin=13*mm, leftMargin=13*mm,
     topMargin=14*mm, bottomMargin=15*mm,
-    title=f"Guia de modelos do GitHub Copilot e custos por token v{VERSION}",
+    title=f"Guia de custos de modelos de IA v{VERSION}",
     author="OpenAI"
 )
 story=[]
 
 # Cover
 banner = Table([
-    [P("GUIA DE MODELOS E CUSTOS", "CoverTitleX")],
-    [P("GitHub Copilot vs. APIs oficiais • Revisão manual de código", "CoverSubX")],
+    [P("GUIA DE CUSTOS DE MODELOS DE IA", "CoverTitleX")],
+    [P("GitHub Copilot e das APIs oficiais", "CoverSubX")],
     [P(f"Versão {VERSION} | Lista de modelos consultada em 26 de outubro de 2026", "CoverSubX")]
 ], colWidths=[landscape(A4)[0]-26*mm])
 banner.setStyle(TableStyle([
@@ -200,8 +200,8 @@ banner.setStyle(TableStyle([
 ]))
 story += [Spacer(1,7*mm), banner, Spacer(1,8*mm)]
 story.append(LinkLabel("Acesse o guia online", "https://ia.guia.lcadev.com.br"))
-story.append(P("Objetivo desta revisão", "H1X"))
-story.append(P("Esta versão inclui os 28 modelos listados na documentação oficial de modelos com suporte no GitHub Copilot, identifica o fornecedor e se o modelo é proprietário, compara preços de referência por milhão de tokens no Copilot e na API direta quando há uma tarifa pública verificável e corrige os exemplos matemáticos de custo por token.", "BodyX"))
+story.append(P("Objetivo deste guia", "H1X"))
+story.append(P("Este guia reúne os 28 modelos listados na documentação oficial do GitHub Copilot. Para cada modelo, informa os provedores e se é proprietário, além de comparar preços de referência por milhão de tokens no Copilot e na API direta quando há tarifas públicas verificáveis. Também apresenta exemplos de cálculo do custo por token.", "BodyX"))
 story.append(P("Leitura rápida", "H2X"))
 quick = [
     [P("<b>API direta</b>", "CellX"), P("Você paga ao fornecedor por tokens processados segundo a tarifa do endpoint, com possíveis diferenças de cache, contexto longo, processamento prioritário e região.", "CellX")],
