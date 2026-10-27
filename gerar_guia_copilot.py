@@ -5,7 +5,7 @@ Requisitos:
     python -m pip install reportlab
 
 Execução:
-    python gerar_guia.py
+    python gerar_guia_copilot.py
 
 O PDF será criado na mesma pasta deste script. Os dados dos modelos e preços
 estão no bloco `models` abaixo; atualize-os e revise as fontes oficiais antes
