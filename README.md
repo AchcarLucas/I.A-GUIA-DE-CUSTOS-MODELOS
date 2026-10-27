@@ -34,7 +34,7 @@ O PDF gerado, `guia_copilot_modelos_custos_revisado_v2.pdf`, será salvo na past
 
 ## 📄 Documento
 
-[**Baixar ou visualizar o guia em PDF**](guia_copilot_modelos_custos-detalhado-v2)
+[**Baixar ou visualizar o guia em PDF**](guia_copilot_modelos_custos-detalhado-v2.pdf)
 
 ## 📊 O que você encontrará
 
