@@ -1,0 +1,16 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# Generated PDF
+guia_copilot_modelos_custos_revisado_v2.pdf
