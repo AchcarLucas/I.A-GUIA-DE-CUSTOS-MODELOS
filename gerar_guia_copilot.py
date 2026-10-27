@@ -16,18 +16,28 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import mm
+from reportlab.lib.utils import ImageReader
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak,
-    KeepTogether, HRFlowable
+    KeepTogether, HRFlowable, Flowable
 )
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
+from io import BytesIO
+from datetime import datetime
 import os
 import shutil
 from pathlib import Path
+import cairosvg
 
-VERSION = "2.1"
+VERSION = "2.2"
+GENERATED_AT = datetime.now().astimezone()
 OUTPUT_DIR = Path(__file__).resolve().parent
+LINK_ICON = ImageReader(BytesIO(cairosvg.svg2png(
+    url=str(OUTPUT_DIR / "assets" / "1f517.svg"),
+    output_width=128,
+    output_height=128,
+)))
 OUT = str(OUTPUT_DIR / f"guia_copilot_modelos_custos-detalhado-v{VERSION}.pdf")
 LATEST_OUT = str(OUTPUT_DIR / "guia_copilot_modelos_custos-detalhado-latest.pdf")
 
@@ -68,6 +78,31 @@ styles.add(ParagraphStyle(name="SourceX", fontName=F, fontSize=7, leading=9.5, t
 def P(s, style="BodyX"):
     return Paragraph(s, styles[style])
 
+def draw_link_icon(canvas, x, y, size):
+    canvas.drawImage(LINK_ICON, x, y, size, size, mask="auto")
+
+class LinkLabel(Flowable):
+    def __init__(self, label, url):
+        super().__init__()
+        self.label = label
+        self.url = url
+        self.icon_size = 9
+        self.gap = 3
+        self.font_size = 8.2
+        self.width = self.icon_size + self.gap + pdfmetrics.stringWidth(label, F, self.font_size)
+        self.height = 12
+        self.spaceAfter = 4
+
+    def wrap(self, avail_width, avail_height):
+        return self.width, self.height
+
+    def draw(self):
+        draw_link_icon(self.canv, 0, 1, self.icon_size)
+        self.canv.setFont(F, self.font_size)
+        self.canv.setFillColor(blue)
+        self.canv.drawString(self.icon_size + self.gap, 2, self.label)
+        self.canv.linkURL(self.url, (0, 0, self.width, self.height), relative=1, thickness=0)
+
 def page_decor(canvas, doc):
     canvas.saveState()
     w, h = doc.pagesize
@@ -81,8 +116,24 @@ def page_decor(canvas, doc):
         canvas.line(13*mm, 12*mm, w - 13*mm, 12*mm)
         canvas.setFont(F, 6.5)
         canvas.setFillColor(gray)
-        canvas.drawString(13*mm, 7.5*mm, "USD por 1 milhão de tokens | Consulta: 26/10/2026")
+        canvas.drawString(
+            13*mm, 7.5*mm,
+            f"Guia de modelos e custos | Atualizado em {GENERATED_AT:%d/%m/%Y às %H:%M}"
+        )
         canvas.drawRightString(w - 13*mm, 7.5*mm, f"Página {doc.page}")
+    site_url = "https://ia.guia.lcadev.com.br"
+    site_label = "Acesse o guia online"
+    footer_y = 7.5*mm
+    canvas.setFont(F, 6.5)
+    canvas.setFillColor(blue)
+    label_width = pdfmetrics.stringWidth(site_label, F, 6.5)
+    icon_size = 8
+    icon_gap = 3
+    total_width = icon_size + icon_gap + label_width
+    link_x = (w - total_width) / 2
+    draw_link_icon(canvas, link_x, footer_y - 1, icon_size)
+    canvas.drawString(link_x + icon_size + icon_gap, footer_y, site_label)
+    canvas.linkURL(site_url, (link_x, footer_y - 1, link_x + total_width, footer_y + 8), relative=0, thickness=0)
     canvas.restoreState()
 
 # Columns: provider/license; direct API input/output; Copilot input/cached/write/output; context note.
@@ -148,6 +199,7 @@ banner.setStyle(TableStyle([
     ("TOPPADDING",(0,2),(-1,2),0),("BOTTOMPADDING",(0,2),(-1,2),10*mm)
 ]))
 story += [Spacer(1,7*mm), banner, Spacer(1,8*mm)]
+story.append(LinkLabel("Acesse o guia online", "https://ia.guia.lcadev.com.br"))
 story.append(P("Objetivo desta revisão", "H1X"))
 story.append(P("Esta versão inclui os 28 modelos listados na documentação oficial de modelos com suporte no GitHub Copilot, identifica o fornecedor e se o modelo é proprietário, compara preços de referência por milhão de tokens no Copilot e na API direta quando há uma tarifa pública verificável e corrige os exemplos matemáticos de custo por token.", "BodyX"))
 story.append(P("Leitura rápida", "H2X"))
